@@ -74,10 +74,10 @@ function testSpeech() {
     diagnosticPara.textContent = 'Speech received: ' + speechResult + '.';
     if(speechResult === phrase) {
       resultPara.textContent = 'I heard the correct phrase!';
-      resultPara.style.background = 'lime';
+      resultPara.style.background = 'green';
     } else {
       resultPara.textContent = 'That didn\'t sound right.';
-      resultPara.style.background = 'red';
+      resultPara.style.background = 'darkred';
     }
 
     console.log('Confidence: ' + event.results[0][0].confidence);
