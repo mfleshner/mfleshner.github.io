@@ -1,4 +1,5 @@
-var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+//var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition;
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
 
