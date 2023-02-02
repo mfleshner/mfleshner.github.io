@@ -18,6 +18,10 @@ body, html {
     text-align: center;
   }
 
+  .note{
+    font-size: 0.75em;
+  }
+
   h1{
     margin: 1em;
   }
