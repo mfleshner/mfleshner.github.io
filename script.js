@@ -1,6 +1,7 @@
 //var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition;
-var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+//var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+var SpeechGrammarList = SpeechGrammarList || window.webkitSpeechGrammarList
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
 
 /*var phrases = [
@@ -33,6 +34,8 @@ var diagnosticPara = document.querySelector('.output');
 var testBtn = document.querySelector('button');
 var phraseNumber = 0;
 
+console.log("voice control scipt.js");
+
 function randomPhrase() {
   var number = Math.floor(Math.random() * phrases.length);
   return number;
@@ -51,11 +54,22 @@ function testSpeech() {
   resultPara.style.background = 'rgba(0,0,0,0.2)';
   diagnosticPara.textContent = '...diagnostic messages';
 
-  var grammar = '#JSGF V1.0; grammar phrase; public <phrase> = ' + phrase +';';
+  //var grammar = '#JSGF V1.0; grammar phrase; public <phrase> = ' + phrase +';';
   var recognition = new SpeechRecognition();
-  var speechRecognitionList = new SpeechGrammarList();
-  speechRecognitionList.addFromString(grammar, 1);
-  recognition.grammars = speechRecognitionList;
+  //var speechRecognitionList = new SpeechGrammarList();
+  //speechRecognitionList.addFromString(grammar, 1);
+  //recognition.grammars = speechRecognitionList;
+
+  if (SpeechGrammarList) {
+    // SpeechGrammarList is not currently available in Safari, and does not have any effect in any other browser.
+    // This code is provided as a demonstration of possible capability. You may choose not to use it.
+    var speechRecognitionList = new SpeechGrammarList();
+    //var grammar = '#JSGF V1.0; grammar colors; public <color> = ' + colors.join(' | ') + ' ;'
+    var grammar = '#JSGF V1.0; grammar phrase; public <phrase> = ' + phrase +';';
+    speechRecognitionList.addFromString(grammar, 1);
+    recognition.grammars = speechRecognitionList;
+  }
+  recognition.continuous = false;
   recognition.lang = 'en-US';
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
