@@ -59,6 +59,11 @@ body, html {
   
   .phrase {
     font-weight: bold;
+    color: yellow;
+  }
+
+  .instr{
+    margin-top: 3em;
   }
 
   .version{
