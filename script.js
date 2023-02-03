@@ -94,14 +94,17 @@ function testSpeech() {
       resultPara.textContent = 'That didn\'t sound right.';
       resultPara.style.background = 'darkred';
     }
+    recognition.stop();
+    testBtn.disabled = false;
+    testBtn.textContent = 'Speak';
 
     console.log('Confidence: ' + event.results[0][0].confidence);
   }
 
   recognition.onspeechend = function() {
-    recognition.stop();
-    testBtn.disabled = false;
-    testBtn.textContent = 'Speak';
+    //recognition.stop();
+    //testBtn.disabled = false;
+    //testBtn.textContent = 'Speak';
   }
 
   recognition.onerror = function(event) {
