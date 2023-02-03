@@ -47,7 +47,7 @@ function testSpeech() {
   testBtn.disabled = true;
   testBtn.textContent = 'Test in progress';
 
-  phraseNumber++; if(phraseNumber > phrases.length) phraseNumber = 0;
+  phraseNumber++; if(phraseNumber >= phrases.length) phraseNumber = 0;
   var phrase = phrases[phraseNumber]; //phrases[randomPhrase()];
   // To ensure case consistency while checking with the returned output text
   phrase = phrase.toLowerCase();
