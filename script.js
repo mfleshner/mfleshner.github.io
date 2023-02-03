@@ -30,6 +30,8 @@ var phrases = [
 var phrasePara = document.querySelector('.phrase');
 var resultPara = document.querySelector('.result');
 var diagnosticPara = document.querySelector('.output');
+var versionText = document.querySelector('.version');
+versionText.textContent = "version: 0.0.8";
 
 var testBtn = document.querySelector('button');
 var phraseNumber = 0;
