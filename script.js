@@ -104,9 +104,9 @@ function testSpeech() {
   }
 
   recognition.onspeechend = function() {
-    //recognition.stop();
-    //testBtn.disabled = false;
-    //testBtn.textContent = 'Speak';
+    recognition.stop();
+    testBtn.disabled = false;
+    testBtn.textContent = 'Speak';
   }
 
   recognition.onerror = function(event) {
